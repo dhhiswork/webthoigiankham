@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <h1>Bệnh viện Quận 12</h1>
+        <p>TỔNG HỢP THỜI GIAN KHÁM TRUNG BÌNH</p>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <h2>16 phút</h2>
+          <p>Khám lâm sàng</p>
+        </div>
+        <div class="stat">
+          <h2>24 phút</h2>
+          <p>Khám lâm sàng và xét nghiệm</p>
+        </div>
+        <div class="stat">
+          <h2>36 phút</h2>
+          <p>Khám lâm sàng, xét nghiệm và chẩn đoán hình ảnh</p>
+        </div>
+        <div class="stat">
+          <h2>53 phút</h2>
+          <p>Khám lâm sàng, xét nghiệm, chần đoán hình ảnh và tham dò chức năng</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="chart-container">
+        <h2>Thời gian khám trung bình của mỗi ngày theo tuần</h2>
+        <canvas id="chartNgayTheoTuan"></canvas>
+      </div>
+      <div class="chart-container">
+        <h2>Thời gian khám trung bình của mỗi tuần theo tháng</h2>
+        <canvas id="chartTuanTheoThang"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
