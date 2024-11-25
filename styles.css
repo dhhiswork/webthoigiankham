@@ -1,102 +1,235 @@
 /* General Styles */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    height: 100vh;
-    color: #333;
-  }
-  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh; /* Chiều cao 100% màn hình */
+  width: 100vw; /* Chiều rộng 100% màn hình */
+  overflow: hidden; /* Loại bỏ thanh trượt */
+  color: #333;
+}
+
+.dashboard {
+  display: flex;
+  flex: 1;
+  overflow: hidden; /* Ẩn thanh trượt ngang dọc */
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0 0 25%; /* Sidebar chiếm 20% màn hình */
+  max-width: 25%; /* Đảm bảo chiều rộng tối đa */
+  height: 100%; /* Chiều cao luôn bằng màn hình */
+  background-color: #f4f4f4;
+  padding: 1%;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar .logo .img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .logo h1 {
+  font-size: 26px;
+  margin: 0;
+  color: #007bff;
+}
+
+.sidebar .logo p {
+  font-size: 28px;
+  font-weight: bold;
+  color: #960000;
+}
+
+.sidebar .stats {
+  margin-top: 20px;
+}
+
+.sidebar .stat {
+  margin-bottom: 15px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.sidebar .stat h2 {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.sidebar .stat p {
+  font-size: 16px;
+  margin: 5px 0 0;
+  color: #0090ac;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1; /* Nội dung chính chiếm phần còn lại */
+  height: 100%;
+  overflow: hidden; /* Loại bỏ thanh cuộn */
+  padding: 1%;
+  background-color: #fafafa;
+}
+
+.chart-container {
+  height: 40%; /* Biểu đồ chiếm 45% chiều cao màn hình */
+  margin-bottom: 2%; /* Giảm khoảng cách giữa các biểu đồ */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1%;  
+}
+
+.chart-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #0090ac;
+}
+
+canvas {
+  width: 100% !important;
+  height: 80% !important;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center; /* Canh giữa các legend */
+  flex-wrap: wrap; /* Xuống dòng nếu không đủ chỗ */
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 10px; /* Khoảng cách giữa các legend */
+  font-size: 14px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 20px; /* Kích thước ô màu */
+  height: 16px;
+  margin-right: 5px;
+  border-radius: 4px; /* Làm tròn ô màu */
+}
+
+
+@media screen and (max-width: 768px) {
   .dashboard {
-    display: flex;
-    width: 100%;
+    flex-direction: column; /* Các phần tử xếp chồng theo chiều dọc */
+  }
+
+  .sidebar {
+    flex: 0 0 auto; /* Chiều rộng tự động điều chỉnh */
+    max-width: 100%; /* Sidebar chiếm toàn bộ chiều rộng */
+    height: 100%; /* Chiều cao tự động */
+  }
+
+  .main-content {
+    flex: 1;
+    width: 100%; /* Nội dung chính cũng chiếm toàn bộ màn hình */
+  }
+
+  .chart-container {
+    height: 40vh; /* Thu nhỏ chiều cao biểu đồ */
+  }
+
+  canvas {
     height: 100%;
   }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 25%;
-    background-color: #f4f4f4;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar .logo {
-    text-align: center;
-    margin-bottom: 20px;
+
+   .sidebar {
+      flex: 0 0 auto !important;
+      max-width: 100% !important;
+      height: auto !important;
+      padding: 2% !important;
+      background-color: #f4f4f4;
   }
 
-  .sidebar .logo .img {
-    max-width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sidebar .logo h1 {
-    font-size: 26px;
-    margin: 0;
-    color: #007bff;
-  }
-  
-  .sidebar .logo p {
-    font-size: 28px;
-    font-weight: bold;
-    color: #960000;
-  }
-  
-  .sidebar .stats {
-    margin-top: 20px;
-  }
-  
   .sidebar .stat {
-    margin-bottom: 15px;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+      padding: 20px !important;
+      font-size: 14px !important;
   }
-  
+
   .sidebar .stat h2 {
-    font-size: 24px;
-    margin: 0;
-    color: #333;
+      font-size: 18px !important;
   }
-  
+
   .sidebar .stat p {
-    font-size: 16px;
-    margin: 5px 0 0;
-    color: #0090ac;
-  }
-  
-  /* Main Content */
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #fafafa;
-  }
-  
-  .chart-container {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .chart-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 18px;
-    color: #0090ac;
-  }
-  
-  canvas {
-    width: 100% !important;
-    height: 300px !important;
+      font-size: 14px !important;
   }
 
+  .sidebar .logo h1 {
+      font-size: 20px !important;
+  }
 
-  
+  .sidebar .logo p {
+      font-size: 20px !important;
+  }
+
+  .sidebar .stats {
+      margin-top: 10px !important;
+  }
+}
+
+@media screen and (max-height: 768px) {
+
+  .sidebar {
+    flex: 0 0 auto; /* Chiều rộng tự động điều chỉnh */
+    max-width: 100%; /* Sidebar chiếm toàn bộ chiều rộng */
+    height: 100%; /* Chiều cao tự động */
+  }
+
+   .sidebar {
+      flex: 0 0 auto !important;
+      max-width: 100% !important;
+      height: auto !important;
+      padding: 2% !important;
+      background-color: #f4f4f4;
+  }
+
+  .sidebar .stat {
+      padding: 20px !important;
+      font-size: 14px !important;
+  }
+
+  .sidebar .stat h2 {
+      font-size: 18px !important;
+  }
+
+  .sidebar .stat p {
+      font-size: 14px !important;
+  }
+
+  .sidebar .logo h1 {
+      font-size: 20px !important;
+  }
+
+  .sidebar .logo p {
+      font-size: 20px !important;
+  }
+
+  .sidebar .stats {
+      margin-top: 10px !important;
+  }
+}
+
+
+
+
+
+
