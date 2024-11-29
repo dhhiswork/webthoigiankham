@@ -32,7 +32,7 @@ body {
 
 .sidebar .logo .img {
   max-width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -43,15 +43,26 @@ body {
   margin: 0;
   color: #007bff;
 }
+.sidebar .logo h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #007bff;
+}
 
 .sidebar .logo p {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: bold;
   color: #960000;
 }
 
 .sidebar .stats {
   margin-top: 20px;
+}
+
+.sidebar .stats h2{
+  font-size: 20px;
+  font-weight: bold;
+  color: #960000;
 }
 
 .sidebar .stat {
